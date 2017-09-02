@@ -71,4 +71,8 @@ describe('Sanitizer', function() {
        assert.equal(sanitize(dirty),'<div>(Unsupported https://evil.com/www.youtube.com/embed/gDV-dOvqKzQ)</div>')
     })
 
+    it('should strip grave accent', async function() {
+       const dirty='<IMG SRC=`javascript:alert("RSnake says, \'XSS\'")`>'
+       assert.equal(sanitize(dirty),'<img src="brokenimg.jpg" />')
+    })
 })
