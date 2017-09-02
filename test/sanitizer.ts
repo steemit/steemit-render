@@ -60,4 +60,9 @@ describe('Sanitizer', function() {
         const dirty = '<IMG SRC=javascript:alert()>'
 	assert.equal(sanitize(dirty),'<img src="brokenimg.jpg" />')
     })
+    
+    it('should strip evil youtube', async function() {
+        const dirty = '<iframe width="560" height="315" src="https://www.youtube.com/embed/gDV-dOvqKzQ" frameborder="0" onLoad="javascript:alert()" allowfullscreen></iframe>'
+	assert.equal(sanitize(dirty),'<iframe frameborder="0" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" src="https://www.youtube.com/embed/gDV-dOvqKzQ" width="640" height="360"></iframe>')
+    })
 })
