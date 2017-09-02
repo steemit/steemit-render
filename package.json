@@ -1,0 +1,22 @@
+{
+  "name": "@steemit/render",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "make ci-test"
+  },
+  "dependencies": {
+    "sanitize-html": "^1.14.1"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.41",
+    "@types/node": "^8.0.26",
+    "@types/sanitize-html": "^1.13.31",
+    "mocha": "^3.5.0",
+    "nyc": "^11.1.0",
+    "onchange": "^3.2.1",
+    "ts-node": "^3.3.0",
+    "tslint": "^5.7.0",
+    "typescript": "^2.5.0"
+  }
+}
