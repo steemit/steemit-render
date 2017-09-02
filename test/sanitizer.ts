@@ -46,5 +46,18 @@ describe('Sanitizer', function() {
 	assert.equal(sanitize(dirty),'ABC<div>DEF</div>')
     })
 
+    it('should strip script recursive', async function() {
+        const dirty = '<scr<script>ipt>alert(document.cookie)</script>'
+	assert.equal(sanitize(dirty).indexOf('script'),-1)
+    })
 
+    it('should strip XML tag', async function() {
+        const dirty = '\'\';!--"<XSS>=&{()}'
+	assert.equal(sanitize(dirty),'\'\';!--&quot;=&amp;{()}')
+    })
+    
+    it('should strip javascript: img src', async function() {
+        const dirty = '<IMG SRC=javascript:alert()>'
+	assert.equal(sanitize(dirty),'<img src="brokenimg.jpg" />')
+    })
 })
