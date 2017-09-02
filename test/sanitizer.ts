@@ -40,4 +40,11 @@ describe('Sanitizer', function() {
         const dirty = '<a href="javascript\x3Ajavascript:alert(1)" id="fuzzelement1">test</a>'
 	assert.equal(sanitize(dirty),'<a rel="noopener">test</a>')
     })
+
+    it('should strip javascript inside CSS', async function() {
+        const dirty = 'ABC<div style="x\x3Aexpression(javascript:alert(1)">DEF'
+	assert.equal(sanitize(dirty),'ABC<div>DEF</div>')
+    })
+
+
 })
