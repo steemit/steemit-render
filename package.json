@@ -1,9 +1,16 @@
 {
   "name": "@steemit/render",
   "version": "1.0.0",
-  "private": true,
+  "author": "Steemit, Inc.",
+  "license": "MIT",
+  "main": "./lib/index",
+  "typings": "./lib/index",
+  "files": [
+    "lib/*"
+  ],
   "scripts": {
-    "test": "make ci-test"
+    "test": "make ci-test",
+    "prepublishOnly": "make all"
   },
   "dependencies": {
     "sanitize-html": "^1.14.1"
