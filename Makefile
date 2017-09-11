@@ -6,7 +6,7 @@ SRC_FILES := $(shell find src -name '*.ts')
 
 all: lib
 
-lib: $(SRC_FILES) node_modules
+lib: $(SRC_FILES) node_modules tsconfig.json package.json
 	tsc -p tsconfig.json --outDir lib
 	touch lib
 
